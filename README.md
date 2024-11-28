@@ -36,7 +36,7 @@ This project is an Internet of Things (IoT) system that monitors soil health by 
 ---
 
 ## Project Structure
-![Soil Image]Screenshot 2024-11-29 003254.png
+![Soil Image](https://github.com/siddisrar786/iit-bhubneshwar-redmud/blob/main/Screenshot%202024-11-29%20003254.png)
 
 ---
 
