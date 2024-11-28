@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Health Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Soil Health Dashboard</h1>
+
+    <!-- NPK Chart -->
+    <canvas id="npkChart" width="400" height="200"></canvas>
+
+    <!-- pH Chart -->
+    <canvas id="phChart" width="400" height="200"></canvas>
+
+    <!-- Moisture Chart -->
+    <canvas id="moistureChart" width="400" height="200"></canvas>
+
+    <script>
+        // Retrieve data passed from Flask and convert it to JavaScript object
+        const chartData = {{ data|tojson }};
+        
+        // Prepare data for the charts
+        let npkData = chartData.map(d => d.npk);
+        let phData = chartData.map(d => d.ph);
+        let moistureData = chartData.map(d => d.moisture);
+
+        // NPK Chart
+        new Chart(document.getElementById("npkChart"), {
+            type: 'line',
+            data: {
+                labels: Array(npkData.length).fill(''),  // Use an empty label array
+                datasets: [{
+                    label: 'NPK Levels',
+                    data: npkData,
+                    borderColor: 'rgb(75, 192, 192)',
+                    fill: false
+                }]
+            }
+        });
+
+        // pH Chart
+        new Chart(document.getElementById("phChart"), {
+            type: 'line',
+            data: {
+                labels: Array(phData.length).fill(''),  // Use an empty label array
+                datasets: [{
+                    label: 'pH Levels',
+                    data: phData,
+                    borderColor: 'rgb(153, 102, 255)',
+                    fill: false
+                }]
+            }
+        });
+
+        // Moisture Chart
+        new Chart(document.getElementById("moistureChart"), {
+            type: 'line',
+            data: {
+                labels: Array(moistureData.length).fill(''),  // Use an empty label array
+                datasets: [{
+                    label: 'Moisture Levels',
+                    data: moistureData,
+                    borderColor: 'rgb(255, 159, 64)',
+                    fill: false
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
