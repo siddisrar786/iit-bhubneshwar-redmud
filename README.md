@@ -36,20 +36,7 @@ This project is an Internet of Things (IoT) system that monitors soil health by 
 ---
 
 ## Project Structure
-soil-monitoring-iot/
-├── esp32/                    # ESP32 firmware and related files
-│   └── main.py               # Code for reading sensors and sending data to the server
-│
-├── server/                   # Flask server and related files
-│   ├── server.py             # Flask app for receiving data, storing in DB, and serving dashboard
-│   ├── soil_data.db          # SQLite database for storing sensor readings
-│   └── templates/            # HTML files for web interface
-│       └── dashboard.html    # Web dashboard template for visualizing data
-│
-├── README.md                 # Project documentation
-└── requirements.txt          # Python dependencies for server setup (e.g., Flask)
-
-
+![Soil Image](Screenshot 2024-11-29 003254.png)
 
 ---
 
